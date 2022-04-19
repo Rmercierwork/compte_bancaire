@@ -1,8 +1,8 @@
 class compte_bancaire:
-    def __init__(self, nom_proprietaire):
+    def __init__(self, nom_proprietaire, solde):
         self._numero_compte = 123
         self._nom_proprietaire = nom_proprietaire
-        self._solde = 0
+        self._solde = solde
 
 
     def retrait(self, argent_retire):
@@ -26,8 +26,8 @@ class compte_bancaire:
 
 
 class compte_courant(compte_bancaire):
-    def __init__(self, nom_proprietaire, pourcentage_agios):
-        super().__init__( nom_proprietaire)
+    def __init__(self, nom_proprietaire, solde, pourcentage_agios):
+        super().__init__( nom_proprietaire, solde)
         self.__autorisation_decouvert = -200
         self.__pourcentage_agios = pourcentage_agios
 
@@ -37,7 +37,7 @@ class compte_courant(compte_bancaire):
 
 
     def retrait(self, argent_retire):
-        if argent_retire < self._solde and self._solde - argent_retire > self.__autorisation_decouvert:
+        if self._solde > 0 and self._solde - argent_retire > self.__autorisation_decouvert:
             compte_bancaire.retrait(self, argent_retire)
             self.agios()
             print("Votre nouveau solde est de :", self._solde)
@@ -61,8 +61,8 @@ class compte_courant(compte_bancaire):
 
 
 class compte_epargne(compte_bancaire):
-    def __init__(self, nom_proprietaire, pourcentage_interet):
-        super().__init__( nom_proprietaire)
+    def __init__(self, nom_proprietaire, solde, pourcentage_interet):
+        super().__init__( nom_proprietaire, solde)
         self.__pourcentage_interet = pourcentage_interet
 
     def interet(self):

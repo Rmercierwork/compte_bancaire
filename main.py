@@ -1,16 +1,7 @@
 from compte import*
 
 def identification():
-    """numero_compte = 0
-    while True:
-        try:
-            numero_compte = int(input("Saisissez votre numéro de compte : "))
-        except ValueError:
-            print("Merci de rentrer votre numéro de compte comprenant uniquement des chiffres")
-            print("Vous trouvez ça drôle d'essayer de me casser?!?")
-            continue
-        else:
-            break"""
+    numero_compte = 0
     nom_proprietaire = compte_bancaire(input("Saisissez votre nom : "))
 
     choix_compte(nom_proprietaire)
