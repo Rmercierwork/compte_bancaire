@@ -11,24 +11,24 @@ class compte_bancaire:
             print("Action impossible, vous êtes en négatif")
         else:
             print("Votre solde est de :", self._solde)
-            print("Votre allez retirer :", argent_retire, "de votre solde")
+            print("Votre avez retiré :", argent_retire, "de votre solde")
 
             self._solde = self._solde - argent_retire
 
     def versement(self, argent_verse):
         print("Votre solde est de :", self._solde)
-        print("Votre allez ajouter :", argent_verse, "à votre solde")
+        print("Votre avez ajouté :", argent_verse, "à votre solde")
 
         self._solde = self._solde + argent_verse
 
     def afficher_solde(self):
-        return self._solde
+        return round(self._solde, 2)
 
 
 class compte_courant(compte_bancaire):
-    def __init__(self, nom_proprietaire, solde, pourcentage_agios):
+    def __init__(self, nom_proprietaire, solde, pourcentage_agios, autorisation_decouvert):
         super().__init__( nom_proprietaire, solde)
-        self.__autorisation_decouvert = -200
+        self.__autorisation_decouvert = -autorisation_decouvert
         self.__pourcentage_agios = pourcentage_agios
 
     def agios(self):
@@ -40,11 +40,10 @@ class compte_courant(compte_bancaire):
         if self._solde > 0 and self._solde - argent_retire > self.__autorisation_decouvert:
             compte_bancaire.retrait(self, argent_retire)
             self.agios()
-            print("Votre nouveau solde est de :", self._solde)
         else:
             if self._solde <= 0:
                 print("Votre solde est de :", self._solde)
-                print("Vous ne pouvez pas effectuer ce retrait")
+                print("Action impossible, vous êtes en négatif")
             else:
                 print("Votre solde est de :", self._solde)
                 print("Vous voulez retirer :", argent_retire,)
@@ -55,7 +54,6 @@ class compte_courant(compte_bancaire):
     def versement(self, argent_verse):
         compte_bancaire.versement(self, argent_verse)
         self.agios()
-        print("Votre nouveau solde est de :", self._solde)
 
 
 
@@ -72,10 +70,8 @@ class compte_epargne(compte_bancaire):
     def retrait(self, argent_retire):
         compte_bancaire.retrait(self, argent_retire)
         self.interet()
-        print("Votre nouveau solde est de : ", self._solde)
 
     def versement(self, argent_verse):
         compte_bancaire.versement(self, argent_verse)
         self.interet()
-        print("Votre nouveau solde est de : ", self._solde)
 

@@ -3,9 +3,10 @@ from compte import *
 
 class test_compte(unittest.TestCase):
     def setUp(self) -> None:
+        '''Fonction servant à prédéfinir nos comptes tests afin de ne pas les réécrire pour chaque test'''
         self.compte_test = compte_bancaire("Toto", 1000)
         self.compte_epargne_test = compte_epargne("Toto", 1500, 10)
-        self.compte_courant_test = compte_courant("Toto", 3000, 20)
+        self.compte_courant_test = compte_courant("Toto", 3000, 20, 200)
 
     def testStartingBalance(self):
         '''Test sur le compte bancaire affiche le nom'''
@@ -16,12 +17,12 @@ class test_compte(unittest.TestCase):
         self.assertEqual(self.compte_test._solde, 1000)
 
     def test_bancaire_versement(self):
-        '''Test sur le compte bancaire versement d'argent'''
+        '''Test sur le compte bancaire le versement d'argent'''
         self.compte_test.versement(100)
         self.assertEqual(self.compte_test._solde, 1100)
 
     def test_bancaire_retrait(self):
-        '''Test sur le compte bancaire retrait d'argent'''
+        '''Test sur le compte bancaire le retrait d'argent'''
         self.compte_test.retrait(500)
         self.assertEqual(self.compte_test._solde, 500)
 
