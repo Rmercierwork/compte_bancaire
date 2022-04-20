@@ -1,4 +1,5 @@
 from compte import*
+import sys
 
 
 def bienvenue():
@@ -90,7 +91,7 @@ def compte(utilisateur_compte_courant, utilisateur_compte_epargne):
                 operation_compte_epargne(utilisateur_compte_courant, utilisateur_compte_epargne)
 
             case 3:
-                break
+                sys.exit()
 
             case _:
                 print("Vous n'avez pas choisi entre votre compte courant, ou votre compte épargne.")
@@ -132,7 +133,7 @@ def operation_compte_courant(utilisateur_compte_courant, utilisateur_compte_epar
                 compte(utilisateur_compte_courant, utilisateur_compte_epargne)
 
             case 4:
-                choix = False
+                sys.exit()
 
             case _:
                 print("Vous pouvez soit faire un versement, soit un retrait ou retourner au choix du compte")
@@ -174,7 +175,7 @@ def operation_compte_epargne(utilisateur_compte_courant, utilisateur_compte_epar
                 compte(utilisateur_compte_courant, utilisateur_compte_epargne)
 
             case 4:
-                choix = False
+                sys.exit()
 
             case _:
                 print("Vous pouvez soit faire un versement, soit un retrait ou retourner au choix du compte")

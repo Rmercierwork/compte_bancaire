@@ -1,6 +1,21 @@
+Il s'agit d'un exercice dans le cadre de la formation POEC-cybersécurité
+avec l'EPSI Rennes.
+Vous trouverez l'intitulé plus bas.
+
+Pour lancer le programme : run le main.py
+
+Le programme permet la création d'un utilisateur, qui pourra interagir avec son compte courant et son compte épargne.
+Il pourra retirer ou verser de l'argent, son solde sera affiché après chaques opérations.
+
+Le compte courant, les agios sont appliqués si le solde passe dans le négatif, et celui-ci dispose d'un plafond à ne pas dépasser.
+
+Le compte épargne, les intérêts sont appliqués après chaque opération sur le nouveau solde.
+
+Une petite batterie de tests ont été écris afin de tester les différentes méthodes de compte.py
+
+Temps consacré au projet : 3 soirées (à update après chaque mise à jour)
+
 TODO :
-- Ajouter le copyright
-- Ecrire proprement le readme
 - configurer et ajouter une dabatase avec sqlite
 - créer une interface graphique avec tk ou Qt
 
