@@ -48,3 +48,9 @@ class test_compte(unittest.TestCase):
         '''Test sur le compte courant si l'opération échoue en cas de dépassement du solde de retrait autorisé'''
         self.compte_courant_test.retrait(3500)
         self.assertEqual(self.compte_courant_test._solde, 3000)
+
+
+__author__ = "MERCIER Raphaël"
+__copyright__ = "Copyright (C) 2022 R.Mercier"
+__licence__ = "Public Domain"
+__version__ = "1.0"

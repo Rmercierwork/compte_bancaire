@@ -1,15 +1,18 @@
 from compte import*
 
+
 def bienvenue():
-    '''Ui de lancement du programme, donnant un message de bienvenue'''
+    """Ui de lancement du programme, donnant un message de bienvenue"""
     print("Bienvenue dans notre banque fictive, vous pourrez stocker votre argent virtuel ici en tout sécurité !")
     print("Vous allez devoir répondre à quelques questions afin d'assurer le bon fonctionnement de cette expérience")
     print("Merci de remplir les champs demander dans le respect de notre programme")
     utilisateur()
 
-def utilisateur():
-    '''Ui de création de l'utilisateur'''
 
+def utilisateur():
+    """Ui de création de l'utilisateur"""
+
+    global solde_compte_courant, pourcentage_agios, autorisation_depassement, solde_compte_epargne, pourcentage_interets
     nom_proprietaire = input("Saisissez votre nom ? : ")
     while True:
         try:
@@ -55,7 +58,8 @@ def utilisateur():
             pourcentage_interets = float(input("De combien sont vos intérêts ? : "))
             if pourcentage_interets >= 20:
                 print("Votre taux d'intérêt est trop élevé, merci de saisir une valeure moins élevée")
-                print("On a beau être une banque fictive, nous voulons quand même avoir des résultats dans la limite du réaliste")
+                print("On a beau être une banque fictive,")
+                print("Nous voulons quand même avoir des résultats dans la limite du réaliste")
                 continue
         except ValueError:
             print("Merci de rentrer nombre")
@@ -68,6 +72,7 @@ def utilisateur():
     utilisateur_compte_epargne = compte_epargne(nom_proprietaire, solde_compte_epargne, pourcentage_interets)
 
     compte(utilisateur_compte_courant, utilisateur_compte_epargne)
+
 
 def compte(utilisateur_compte_courant, utilisateur_compte_epargne):
     continuer_operation = True
@@ -90,6 +95,7 @@ def compte(utilisateur_compte_courant, utilisateur_compte_epargne):
             case _:
                 print("Vous n'avez pas choisi entre votre compte courant, ou votre compte épargne.")
                 print("Merci de bien vouloir choisir parmis l'un des deux")
+
 
 def operation_compte_courant(utilisateur_compte_courant, utilisateur_compte_epargne):
     choix = True
@@ -131,6 +137,7 @@ def operation_compte_courant(utilisateur_compte_courant, utilisateur_compte_epar
             case _:
                 print("Vous pouvez soit faire un versement, soit un retrait ou retourner au choix du compte")
                 print("Désolé, mais aucune autre opération n'est possible")
+
 
 def operation_compte_epargne(utilisateur_compte_courant, utilisateur_compte_epargne):
     choix = True
@@ -176,3 +183,9 @@ def operation_compte_epargne(utilisateur_compte_courant, utilisateur_compte_epar
 
 if __name__ == "__main__":
     bienvenue()
+
+
+__author__ = "MERCIER Raphaël"
+__copyright__ = "Copyright (C) 2022 R.Mercier"
+__licence__ = "Public Domain"
+__version__ = "1.0"
