@@ -79,15 +79,13 @@ def compte(utilisateur_compte_courant, utilisateur_compte_epargne):
         compte_choisi = int(input())
         match compte_choisi:
             case 1:
-                continuer_operation = False
                 operation_compte_courant(utilisateur_compte_courant, utilisateur_compte_epargne)
 
             case 2:
-                continuer_operation = False
                 operation_compte_epargne(utilisateur_compte_courant, utilisateur_compte_epargne)
 
             case 3:
-                continuer_operation = False
+                break
 
             case _:
                 print("Vous n'avez pas choisi entre votre compte courant, ou votre compte épargne.")
